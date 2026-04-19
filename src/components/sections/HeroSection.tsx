@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { personalInfo, socialLinks } from "@/data/portfolio";
-import { GitFork, Link as LinkIcon, Globe, AtSign } from "lucide-react";
+import { GitFork, Link as LinkIcon, Globe, AtSign, FileDown, User, Check, Copy, Triangle } from "lucide-react";
+import Button from "@/components/ui/Button";
 
 const socialIconMap: Record<string, React.ReactNode> = {
   github: <GitFork className="w-5 h-5" />,
@@ -15,6 +16,7 @@ const socialIconMap: Record<string, React.ReactNode> = {
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
+  const [copied, setCopied] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -22,6 +24,22 @@ export default function HeroSection() {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const lenis = (window as any).lenis;
+    if (lenis) {
+      lenis.scrollTo("#about", { offset: -80 });
+    } else {
+      document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -71,7 +89,7 @@ export default function HeroSection() {
         style={{ opacity }}
       >
         {/* Left Column — Text Content */}
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-1 text-center lg:text-left">
           {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -81,40 +99,106 @@ export default function HeroSection() {
               delay: 0.2,
               ease: [0.21, 0.47, 0.32, 0.98],
             }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-text-primary"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-text-primary mb-2"
           >
             <span className="bg-gradient-to-r from-accent via-purple-500 to-accent bg-clip-text text-transparent">
-            {personalInfo.name}
+              {personalInfo.name}
             </span>
-            {/* {personalInfo.name.split(" ").map((word, i) => (
-              <span key={i} className="block">
-                {i === 0 ? (
-                  word
-                ) : (
-                  <span className="bg-gradient-to-r from-accent via-purple-500 to-accent bg-clip-text text-transparent">
-                    {word}
-                  </span>
-                )}
-              </span>
-            ))} */}
           </motion.h1>
 
-          {/* Title / Role */}
-          <motion.p
+          {/* Headline */}
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-4 text-lg md:text-xl text-text-secondary tracking-wide"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary/90 mt-2"
           >
-            {personalInfo.title}
-          </motion.p>
+            {personalInfo.headline}
+          </motion.h2>
 
-          {/* Social Icons Row */}
-          <motion.div
+          {/* Subtext */}
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-8 flex items-center gap-4"
+            className="mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-xl mx-auto lg:mx-0 leading-relaxed"
+          >
+            {personalInfo.subtext}
+          </motion.p>
+
+          {/* Buttons Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+          >
+            <Button
+              variant="primary"
+              size="lg"
+              href="/resume.pdf"
+              className="w-full sm:w-auto px-8"
+            >
+              <FileDown className="w-5 h-5" />
+              Download CV
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              href="#about"
+              onClick={handleAboutClick}
+              className="w-full sm:w-auto px-8 bg-surface/30 backdrop-blur-sm"
+            >
+              <User className="w-5 h-5" />
+              About Me
+            </Button>
+          </motion.div>
+
+          {/* Email Terminal Prompt */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="mt-8 flex justify-center lg:justify-start"
+          >
+            <button
+              onClick={copyToClipboard}
+              className="group relative flex items-center gap-3 px-4 py-2 rounded-xl border border-border/50 bg-surface/20 backdrop-blur-sm hover:border-accent/40 transition-all duration-300"
+            >
+              <Triangle className="w-4 h-4 text-text-secondary/60 fill-text-secondary/40 rotate-90" />
+              <span className="text-sm font-mono text-text-secondary group-hover:text-text-primary transition-colors">
+                ~ {personalInfo.email}
+              </span>
+              <div className="ml-2">
+                {copied ? (
+                  <Check className="w-4 h-4 text-green-500" />
+                ) : (
+                  <Copy className="w-4 h-4 text-text-secondary/40 group-hover:text-accent transition-colors" />
+                )}
+              </div>
+
+              {/* Tooltip */}
+              <AnimatePresence>
+                {copied && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                    animate={{ opacity: 1, y: -45, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                    className="absolute left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-accent text-white text-xs font-medium shadow-lg pointer-events-none"
+                  >
+                    Copied!
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+          </motion.div>
+
+          {/* Social Icons Row (Moved below features) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="mt-12 flex items-center justify-center lg:justify-start gap-4"
           >
             {socialLinks.map((link) => (
               <a

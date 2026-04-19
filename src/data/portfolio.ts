@@ -36,9 +36,9 @@ export const personalInfo = {
   name: "Reza MD Zakiul Karim Dhruba",
   shortName: "Dhruba Karim",
   title: "Frontend Engineer",
-  headline: "Frontend Engineer crafting fast, scalable web experiences",
+  headline: "I design & code for web",
   subtext:
-    "I build pixel-perfect, performant web applications with modern technologies. Passionate about clean code, design systems, and delivering exceptional user experiences.",
+    "Software Developer specializing in Full Stack Development with expertise in React.js, Node.js and modern Web Technologies.",
   bio: [
     "I'm a frontend engineer with a passion for building products that are fast, accessible, and beautiful. I specialize in React, Next.js, and TypeScript, and I love turning complex problems into simple, elegant solutions.",
     "When I'm not coding, you'll find me exploring new technologies, contributing to open source, or refining my craft. I believe in continuous learning and pushing the boundaries of what's possible on the web.",
