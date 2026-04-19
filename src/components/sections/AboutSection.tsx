@@ -48,7 +48,7 @@ export default function AboutSection() {
               <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-accent/30 to-purple-500/30 blur-lg opacity-60" />
               <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-surface shadow-2xl">
                 <Image
-                  src="/images/profile.png"
+                  src="/images/2nd.jpg"
                   alt={`${personalInfo.name} - Frontend Engineer`}
                   width={500}
                   height={500}

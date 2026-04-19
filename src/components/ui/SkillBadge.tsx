@@ -48,7 +48,8 @@ const iconMap: Record<string, React.ReactNode> = {
   postgresql: <Database className="w-5 h-5" />,
   mongodb: <Database className="w-5 h-5" />,
   api: <Cpu className="w-5 h-5" />,
-  firebase: <Flame className="w-5 h-5" />,
+  angular: <Braces className="w-5 h-5" />,
+  python: <FileCode className="w-5 h-5" />,
   default: <Boxes className="w-5 h-5" />,
 };
 

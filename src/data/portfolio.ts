@@ -16,6 +16,23 @@ export interface Experience {
   achievements: string[];
 }
 
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  duration: string;
+  gpa: string;
+  details: string[];
+}
+
+export interface Publication {
+  id: string;
+  title: string;
+  date: string;
+  conference?: string;
+  description?: string;
+}
+
 export interface Skill {
   name: string;
   icon: string;
@@ -40,160 +57,124 @@ export const personalInfo = {
   subtext:
     "Software Developer specializing in Full Stack Development with expertise in React.js, Node.js and modern Web Technologies.",
   bio: [
-    "I'm a frontend engineer with a passion for building products that are fast, accessible, and beautiful. I specialize in React, Next.js, and TypeScript, and I love turning complex problems into simple, elegant solutions.",
+    "I'm a Frontend Engineer with 3 years of experience building scalable, high-performance web applications using React and Next.js. I'm experienced in designing reusable component architectures, managing complex application state, and integrating RESTful APIs in enterprise environments.",
     "When I'm not coding, you'll find me exploring new technologies, contributing to open source, or refining my craft. I believe in continuous learning and pushing the boundaries of what's possible on the web.",
     "My approach combines a performance-first mindset with meticulous attention to design detail. Every millisecond matters, and every pixel counts.",
   ],
-  email: "reza.dhruba@example.com",
+  email: "zkdhruba@gmail.com",
   location: "Dhaka, Bangladesh",
-  yearsOfExperience: "4+",
-  projectsDelivered: "30+",
-  happyClients: "15+",
+  yearsOfExperience: "3",
+  projectsDelivered: "10+",
+  happyClients: "5+",
 };
 
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#projects" },
+  { label: "Academic", href: "#academic" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const projects: Project[] = [
   {
     id: "project-1",
-    title: "Analytics Dashboard",
+    title: "Library Management System",
     description:
-      "A real-time analytics dashboard with interactive charts, data visualization, and comprehensive reporting tools for SaaS businesses.",
-    image: "/images/projects/project-1.png",
-    techStack: ["React", "TypeScript", "D3.js", "Tailwind CSS", "Node.js"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "project-2",
-    title: "E-Commerce Platform",
-    description:
-      "A modern e-commerce platform with product filtering, cart management, secure checkout, and a responsive storefront design.",
-    image: "/images/projects/project-2.png",
-    techStack: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "project-3",
-    title: "CollabSpace",
-    description:
-      "A real-time collaboration workspace featuring kanban boards, document editing, and team management — inspired by Notion and Linear.",
-    image: "/images/projects/project-3.png",
-    techStack: ["React", "Socket.io", "MongoDB", "Express", "Tailwind CSS"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "project-4",
-    title: "AI Chat Interface",
-    description:
-      "An AI-powered chat application with streaming responses, conversation history, and a polished interface built for productivity.",
-    image: "/images/projects/project-4.png",
-    techStack: ["Next.js", "OpenAI API", "TypeScript", "Vercel AI SDK"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "project-5",
-    title: "Social Connect",
-    description:
-      "A social media platform with real-time feeds, stories, profile customization, and rich media sharing features.",
-    image: "/images/projects/project-5.png",
-    techStack: ["React", "Firebase", "TypeScript", "Tailwind CSS", "Zustand"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "project-6",
-    title: "WeatherCraft",
-    description:
-      "A beautiful weather application with animated forecasts, location-based data, and a weekly planner with push notifications.",
-    image: "/images/projects/project-6.png",
-    techStack: ["Next.js", "OpenWeather API", "Framer Motion", "TypeScript"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+      "A full-stack web application for managing book inventory, borrowing workflows, and user tracking. Features include availability tracking, borrowing history, and due-date monitoring.",
+    image: "/images/projects/LMS.PNG",
+    techStack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/zkDhruba/library-management-website",
   },
 ];
 
 export const experiences: Experience[] = [
   {
     id: "exp-1",
-    role: "Senior Frontend Engineer",
-    company: "TechNova Solutions",
-    duration: "Jan 2024 — Present",
+    role: "Frontend Software Developer",
+    company: "United Software Solutions",
+    duration: "March 2023 — Present",
     achievements: [
-      "Led the migration of a legacy jQuery application to React/Next.js, improving load times by 60%",
-      "Architected a component library with 50+ reusable components, adopted by 3 product teams",
-      "Implemented performance monitoring with Core Web Vitals, achieving 95+ Lighthouse scores",
-      "Mentored 4 junior developers through code reviews and pair programming sessions",
+      "Developed and maintained multiple production-level web applications using React, Next.js, and Angular",
+      "Built reusable and scalable component architectures to ensure UI consistency across multiple modules",
+      "Implemented centralized state management using Redux Toolkit and NgRx to improve maintainability and scalability",
+      "Integrated and optimized RESTful API communication to ensure responsive and data-driven interfaces",
+      "Applied performance optimization techniques such as component memoization and efficient state updates",
+      "Collaborated with backend and IoT teams to translate business requirements into scalable frontend solutions",
     ],
   },
+];
+
+export const education: Education[] = [
   {
-    id: "exp-2",
-    role: "Frontend Developer",
-    company: "CloudPeak Digital",
-    duration: "Jun 2022 — Dec 2023",
-    achievements: [
-      "Built and shipped a real-time collaboration dashboard used by 10,000+ daily active users",
-      "Reduced bundle size by 40% through code splitting and lazy loading strategies",
-      "Designed and implemented a dark mode system across the entire product suite",
-      "Collaborated with UX team to improve accessibility, achieving WCAG 2.1 AA compliance",
+    id: "edu-1",
+    degree: "BSc in Computer Science",
+    institution: "Shahjalal University of Science & Technology",
+    duration: "Feb 2017 — June 2022",
+    gpa: "3.41/4.0",
+    details: [
+      "Campus: Sylhet Engineering College",
+      "Coursework: Programming Language, OOP, Algorithms, Computer Architecture, Data Structure, Computational Theory, Database Management System, Artificial Intelligence, Machine Learning",
     ],
   },
+];
+
+export const publications: Publication[] = [
   {
-    id: "exp-3",
-    role: "Junior Web Developer",
-    company: "PixelForge Agency",
-    duration: "Aug 2021 — May 2022",
-    achievements: [
-      "Developed responsive landing pages and web applications for 20+ clients",
-      "Introduced Tailwind CSS to the team workflow, reducing CSS development time by 50%",
-      "Built reusable email templates and animation systems for marketing campaigns",
-      "Participated in client workshops to gather requirements and present design solutions",
-    ],
+    id: "pub-1",
+    title:
+      "Bangla Hand Sign Recognition using Convolutional Neural Network and Transfer Learning",
+    date: "Jan 2023",
+    conference: "7th International Conference on Engineering Research, Innovation and Education (ICERIE 2023)",
   },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
+    category: "Languages",
+    skills: [
+      { name: "JavaScript", icon: "javascript" },
+      { name: "Python", icon: "python" },
+    ],
+  },
+  {
     category: "Frontend",
     skills: [
       { name: "React", icon: "react" },
       { name: "Next.js", icon: "nextjs" },
+      { name: "Angular", icon: "javascript" },
       { name: "TypeScript", icon: "typescript" },
-      { name: "JavaScript", icon: "javascript" },
-      { name: "Tailwind CSS", icon: "tailwind" },
-      { name: "Framer Motion", icon: "framer" },
       { name: "HTML5", icon: "html" },
       { name: "CSS3", icon: "css" },
+      { name: "Tailwind CSS", icon: "tailwind" },
+    ],
+  },
+  {
+    category: "Data Science & ML",
+    skills: [
+      { name: "PyTorch", icon: "default" },
+      { name: "TensorFlow", icon: "default" },
+      { name: "Scikit-Learn", icon: "default" },
+      { name: "Keras", icon: "default" },
+      { name: "Pandas", icon: "default" },
+      { name: "NumPy", icon: "default" },
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      { name: "Node.js", icon: "nodejs" },
+      { name: "RESTful APIs", icon: "api" },
     ],
   },
   {
     category: "Tools & Workflow",
     skills: [
       { name: "Git", icon: "git" },
-      { name: "VS Code", icon: "vscode" },
-      { name: "Figma", icon: "figma" },
-      { name: "Vercel", icon: "vercel" },
-      { name: "Docker", icon: "docker" },
-      { name: "GitHub Actions", icon: "github" },
-    ],
-  },
-  {
-    category: "Backend Basics",
-    skills: [
-      { name: "Node.js", icon: "nodejs" },
-      { name: "Express", icon: "express" },
-      { name: "PostgreSQL", icon: "postgresql" },
-      { name: "MongoDB", icon: "mongodb" },
-      { name: "REST APIs", icon: "api" },
-      { name: "Firebase", icon: "firebase" },
+      { name: "GitHub", icon: "github" },
+      { name: "BitBucket", icon: "default" },
+      { name: "GitLab", icon: "default" },
     ],
   },
 ];
@@ -201,7 +182,7 @@ export const skillCategories: SkillCategory[] = [
 export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
-    url: "https://github.com",
+    url: "https://github.com/zkDhruba",
     icon: "github",
   },
   {
