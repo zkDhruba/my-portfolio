@@ -81,9 +81,12 @@ export default function HeroSection() {
               delay: 0.2,
               ease: [0.21, 0.47, 0.32, 0.98],
             }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-text-primary"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-text-primary"
           >
-            {personalInfo.shortName.split(" ").map((word, i) => (
+            <span className="bg-gradient-to-r from-accent via-purple-500 to-accent bg-clip-text text-transparent">
+            {personalInfo.name}
+            </span>
+            {/* {personalInfo.name.split(" ").map((word, i) => (
               <span key={i} className="block">
                 {i === 0 ? (
                   word
@@ -93,7 +96,7 @@ export default function HeroSection() {
                   </span>
                 )}
               </span>
-            ))}
+            ))} */}
           </motion.h1>
 
           {/* Title / Role */}
@@ -146,7 +149,7 @@ export default function HeroSection() {
             {/* Profile Image */}
             <div className="relative w-72 h-80 sm:w-80 sm:h-[22rem] lg:w-[26rem] lg:h-[30rem] xl:w-[30rem] xl:h-[34rem] rounded-3xl overflow-hidden border border-border/50 shadow-2xl">
               <Image
-                src="/images/profile.png"
+                src="/images/dk.PNG"
                 alt={`${personalInfo.name} — ${personalInfo.title}`}
                 fill
                 className="object-cover object-top"

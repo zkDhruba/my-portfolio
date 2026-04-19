@@ -34,7 +34,7 @@ export interface SocialLink {
 
 export const personalInfo = {
   name: "Reza MD Zakiul Karim Dhruba",
-  shortName: "Reza Dhruba",
+  shortName: "Dhruba Karim",
   title: "Frontend Engineer",
   headline: "Frontend Engineer crafting fast, scalable web experiences",
   subtext:
