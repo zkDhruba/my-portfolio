@@ -3,22 +3,18 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg";
-  children: React.ReactNode;
-  href?: string;
-  asChild?: boolean;
-}
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    variant?: "primary" | "outline" | "ghost";
+    size?: "sm" | "md" | "lg";
+    children: React.ReactNode;
+    className?: string;
+    href?: string;
+  };
 
-export default function Button({
-  variant = "primary",
-  size = "md",
-  children,
-  className,
-  href,
-  ...props
-}: ButtonProps) {
+export default function Button(props: ButtonProps) {
+  const { variant = "primary", size = "md", children, className, ...rest } = props;
+
   const baseStyles =
     "inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 active:scale-[0.98]";
 
@@ -39,16 +35,19 @@ export default function Button({
 
   const classes = cn(baseStyles, variants[variant], sizes[size], className);
 
-  if (href) {
+  if ("href" in rest && rest.href) {
+    const { href, ...anchorProps } = rest as React.AnchorHTMLAttributes<HTMLAnchorElement>;
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...anchorProps}>
         {children}
       </a>
     );
   }
 
+  const buttonProps = rest as React.ButtonHTMLAttributes<HTMLButtonElement>;
+
   return (
-    <button className={classes} {...props}>
+    <button className={classes} {...buttonProps}>
       {children}
     </button>
   );

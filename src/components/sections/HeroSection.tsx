@@ -136,7 +136,7 @@ export default function HeroSection() {
             <Button
               variant="primary"
               size="lg"
-              href="/resume.pdf"
+              href={personalInfo.resumeUrl}
               className="w-full sm:w-auto px-8"
             >
               <FileDown className="w-5 h-5" />

@@ -63,6 +63,7 @@ export const personalInfo = {
   ],
   email: "zkdhruba@gmail.com",
   location: "Dhaka, Bangladesh",
+  resumeUrl: "/docs/Dhruba_SE_Resume_2.pdf",
   yearsOfExperience: "3",
   projectsDelivered: "10+",
   happyClients: "5+",
