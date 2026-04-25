@@ -5,11 +5,12 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { personalInfo, socialLinks } from "@/data/portfolio";
 import { GitFork, Link as LinkIcon, Globe, AtSign, FileDown, User, Check, Copy, Triangle } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 
 const socialIconMap: Record<string, React.ReactNode> = {
-  github: <GitFork className="w-5 h-5" />,
-  linkedin: <LinkIcon className="w-5 h-5" />,
+  github: <FaGithub className="w-5 h-5" />,
+  linkedin: <FaLinkedin className="w-5 h-5" />,
   twitter: <Globe className="w-5 h-5" />,
   dribbble: <AtSign className="w-5 h-5" />,
 };
