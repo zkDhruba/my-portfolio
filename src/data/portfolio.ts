@@ -88,6 +88,16 @@ export const projects: Project[] = [
     liveUrl: "#",
     githubUrl: "https://github.com/zkDhruba/library-management-website",
   },
+  {
+    id: "project-2",
+    title: "Agency Landing Page",
+    description:
+      "An animated landing page for a AI Web Design Agency.",
+    image: "/images/projects/nova_ai.PNG",
+    techStack: ["TypeScript", "React", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://pure-black-hero.vercel.app/",
+    githubUrl: "https://github.com/zkDhruba/pure-black-hero",
+  },
 ];
 
 export const experiences: Experience[] = [
