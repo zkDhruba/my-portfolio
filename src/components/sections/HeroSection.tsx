@@ -58,6 +58,9 @@ export default function HeroSection() {
       {/* Grid Pattern */}
       <div className="absolute inset-0 grid-bg opacity-40" />
 
+      {/* Bottom Gradient Fade — For seamless transition to next section */}
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background via-background/50 to-transparent z-[2] pointer-events-none" />
+
       {/* Floating Accent Shapes */}
       <motion.div
         className="absolute top-1/4 left-[5%] w-72 h-72 rounded-full bg-accent/10 blur-3xl"

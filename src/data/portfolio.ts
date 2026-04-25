@@ -92,11 +92,21 @@ export const projects: Project[] = [
     id: "project-2",
     title: "Agency Landing Page",
     description:
-      "An animated landing page for a AI Web Design Agency.",
+      "An animated landing page for an AI web design agency featuring smooth scroll interactions, modern visuals, and subtle micro-animations.",
     image: "/images/projects/nova_ai.PNG",
     techStack: ["TypeScript", "React", "Tailwind CSS", "Framer Motion"],
     liveUrl: "https://pure-black-hero.vercel.app/",
     githubUrl: "https://github.com/zkDhruba/pure-black-hero",
+  },
+  {
+    id: "project-3",
+    title: "Hotel & Restaurant Booking",
+    description:
+      "A restaurant and hotel booking platform designed for travel, meetings, and weddings. It features a clean, responsive interface with intuitive navigation, showcasing venues and reservations.",
+    image: "/images/projects/mulia_clone.PNG",
+    techStack: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://zkdhruba.github.io/the-mulia-clone/",
+    githubUrl: "https://github.com/zkDhruba/the-mulia-clone",
   },
 ];
 
